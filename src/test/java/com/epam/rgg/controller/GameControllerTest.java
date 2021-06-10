@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 
 @MockTag
 @ExtendWith(MockitoExtension.class)
-public class GameControllerTest {
+class GameControllerTest {
 
     private GameController gameController;
 
