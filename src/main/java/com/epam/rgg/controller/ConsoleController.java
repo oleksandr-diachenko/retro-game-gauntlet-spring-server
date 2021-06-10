@@ -3,12 +3,10 @@ package com.epam.rgg.controller;
 import com.epam.rgg.dto.ConsoleDto;
 import com.epam.rgg.model.ConsoleType;
 import com.epam.rgg.service.ConsoleService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/v1/consoles")
 public class ConsoleController {
 
