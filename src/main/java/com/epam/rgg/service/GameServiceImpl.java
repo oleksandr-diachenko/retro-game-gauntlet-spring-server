@@ -9,6 +9,6 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GameDto rollGame(ConsoleType consoleType) {
-        throw new UnsupportedOperationException("Not implemented!"); //auto-generated
+        return new GameDto("Super Mario Bros", consoleType, 1985); //TODO mock for UI
     }
 }
