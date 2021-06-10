@@ -44,7 +44,7 @@ class ConsoleControllerSpringTest {
         when(consoleService.findConsole(ConsoleType.NES)).thenReturn(consoleDto);
 
         mockMvc.perform(get("/v1/consoles/NES"))
-                .andExpect(jsonPath("$.type", is("NES")))
+                .andExpect(jsonPath("$.consoleType", is("NES")))
                 .andExpect(jsonPath("$.gameCount", is(764)));
     }
 }
