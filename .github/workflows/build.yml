@@ -27,7 +27,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Maven Verify
-        run: mvnw -B clean verify
+        run: mvn -B clean verify
 
       - name: Test Coverage
         uses: codecov/codecov-action@v1

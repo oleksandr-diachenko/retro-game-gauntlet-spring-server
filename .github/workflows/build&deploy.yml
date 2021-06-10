@@ -20,7 +20,7 @@ jobs:
           java-version: '16'
 
       - name: Maven Verify
-        run: mvnw -B clean verify
+        run: mvn -B clean verify
 
       - name: Test Coverage
         uses: codecov/codecov-action@v1
@@ -39,7 +39,7 @@ jobs:
           java-version: '16'
 
       - name: Analyze with SonarCloud
-        run: mvnw -B clean compile sonar:sonar -Dsonar.projectKey=oleksandr-diachenko_kindergarter-menu-maker -Dsonar.organization=alexander-diachenko-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        run: mvn -B clean compile sonar:sonar -Dsonar.projectKey=oleksandr-diachenko_kindergarter-menu-maker -Dsonar.organization=alexander-diachenko-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -57,5 +57,5 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           delay: 10
-          healthcheck: https://kindergarten-menu.herokuapp.com/recipes
+          healthcheck: https://retro-game-gauntlet-server
           rollbackonhealthcheckfailed: true
