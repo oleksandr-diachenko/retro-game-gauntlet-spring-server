@@ -1,9 +1,9 @@
 package com.epam.rgg.controller;
 
-import com.epam.rgg.dto.ConsoleDto;
+import com.epam.rgg.dto.GameDto;
 import com.epam.rgg.junittag.SpringTag;
 import com.epam.rgg.model.ConsoleType;
-import com.epam.rgg.service.ConsoleService;
+import com.epam.rgg.service.GameService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -17,29 +17,30 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringTag
-@WebMvcTest(ConsoleController.class)
-class ConsoleControllerSpringTest {
+@WebMvcTest(GameController.class)
+class GameControllerSpringTest {
 
     @Autowired
-    private ConsoleController consoleController;
+    private GameController gameController;
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private ConsoleService consoleService;
+    private GameService gameService;
 
     @Test
     void shouldContextLoaded() {
-        assertThat(consoleController).isNotNull();
+        assertThat(gameController).isNotNull();
     }
 
     @Test
-    void shouldReturnConsole() throws Exception {
-        ConsoleDto consoleDto = new ConsoleDto(ConsoleType.NES, 764);
-        when(consoleService.findConsole(ConsoleType.NES)).thenReturn(consoleDto);
+    void shouldReturnGame() throws Exception {
+        GameDto mario = new GameDto("Mario", ConsoleType.NES, 1985);
+        when(gameService.rollGame(ConsoleType.NES)).thenReturn(mario);
 
-        mockMvc.perform(get("/v1/consoles/NES"))
+        mockMvc.perform(get("/v1/games/random/NES"))
+                .andExpect(jsonPath("$.name", is("Mario")))
                 .andExpect(jsonPath("$.consoleType", is("NES")))
-                .andExpect(jsonPath("$.gameCount", is(764)));
+                .andExpect(jsonPath("$.year", is(1985)));
     }
 }
