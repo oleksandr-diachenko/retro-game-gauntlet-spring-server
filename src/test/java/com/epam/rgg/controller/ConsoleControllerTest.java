@@ -1,8 +1,10 @@
 package com.epam.rgg.controller;
 
 import com.epam.rgg.dto.ConsoleDto;
+import com.epam.rgg.junittag.MockTag;
 import com.epam.rgg.service.ConsoleService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -12,6 +14,7 @@ import static com.epam.rgg.model.ConsoleType.NES;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.when;
 
+@MockTag
 @ExtendWith(MockitoExtension.class)
 public class ConsoleControllerTest {
 
