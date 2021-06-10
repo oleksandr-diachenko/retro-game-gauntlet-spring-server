@@ -56,7 +56,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          healthcheck: https://retro-game-gauntlet-server/actuator/health
-          checkstring: ${{secrets.ACTUATOR_HEALTH_CHECK_STRING}}
-          delay: 60
+          healthcheck: https://retro-game-gauntlet-server.herokuapp.com/actuator/health
+          delay: 10
           rollbackonhealthcheckfailed: true
