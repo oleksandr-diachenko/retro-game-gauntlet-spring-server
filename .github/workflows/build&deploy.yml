@@ -1,4 +1,4 @@
-name: Deploy docker image
+name: Deploy application on heroku
 
 on:
   push:
