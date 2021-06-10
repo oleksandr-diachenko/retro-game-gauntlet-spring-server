@@ -9,6 +9,6 @@ public class ConsoleServiceImpl implements ConsoleService {
 
     @Override
     public ConsoleDto findConsole(ConsoleType consoleType) {
-        throw new UnsupportedOperationException("Not implemented!"); //auto-generated
+        return new ConsoleDto(consoleType, 4134); //TODO mock for UI
     }
 }
