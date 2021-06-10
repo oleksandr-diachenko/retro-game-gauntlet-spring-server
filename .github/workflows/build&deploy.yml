@@ -1,0 +1,61 @@
+name: Deploy docker image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonning project
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '16'
+
+      - name: Maven Verify
+        run: mvn -B clean verify
+
+      - name: Test Coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonning project
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '16'
+
+      - name: Analyze with SonarCloud
+        run: mvn -B clean compile sonar:sonar -Dsonar.projectKey=oleksandr-diachenko_kindergarter-menu-maker -Dsonar.organization=alexander-diachenko-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  deploy_heroku:
+    runs-on: ubuntu-latest
+    needs: [ build, sonarcloud ]
+    steps:
+      - name: Clonning project
+        uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.5.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          delay: 10
+          healthcheck: https://retro-game-gauntlet-server
+          rollbackonhealthcheckfailed: true
