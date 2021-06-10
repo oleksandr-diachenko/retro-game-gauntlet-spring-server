@@ -4,7 +4,6 @@ import com.epam.rgg.dto.ConsoleDto;
 import com.epam.rgg.junittag.MockTag;
 import com.epam.rgg.service.ConsoleService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -16,7 +15,7 @@ import static org.mockito.Mockito.when;
 
 @MockTag
 @ExtendWith(MockitoExtension.class)
-public class ConsoleControllerTest {
+class ConsoleControllerTest {
 
     private ConsoleController consoleController;
 
