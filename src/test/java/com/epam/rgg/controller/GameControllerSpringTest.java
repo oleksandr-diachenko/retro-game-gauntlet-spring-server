@@ -35,7 +35,9 @@ class GameControllerSpringTest {
 
     @Test
     void shouldReturnGame() throws Exception {
-        GameDto mario = new GameDto("Mario", ConsoleType.NES, 1985);
+        GameDto mario = GameDto.builder()
+                .name("Mario").consoleType(ConsoleType.NES).year(1985)
+                .build();
         when(gameService.rollGame(ConsoleType.NES)).thenReturn(mario);
 
         mockMvc.perform(get("/v1/games/random/NES"))

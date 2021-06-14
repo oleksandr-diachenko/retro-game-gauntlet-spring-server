@@ -29,7 +29,9 @@ class GameControllerTest {
 
     @Test
     void shouldReturnGame() {
-        GameDto mario = new GameDto("Mario", ConsoleType.NES, 1985);
+        GameDto mario = GameDto.builder()
+                .name("Mario").consoleType(ConsoleType.NES).year(1985)
+                .build();
         when(gameService.rollGame(ConsoleType.NES)).thenReturn(mario);
 
         GameDto actual = gameController.getRandomGame(ConsoleType.NES);
