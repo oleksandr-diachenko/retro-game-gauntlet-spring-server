@@ -7,6 +7,7 @@ import com.epam.rgg.model.ConsoleType;
 import com.epam.rgg.repository.GameRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @Service
@@ -24,6 +25,6 @@ public class GameServiceImpl implements GameService {
         if (randomGame.isPresent()) {
             return GameMapper.INSTANCE.gameToGameDto(randomGame.get());
         }
-        throw new RecordNotFound("Game with console type " + consoleType + " not found");
+        throw new EntityNotFoundException("Game with console type " + consoleType + " not found");
     }
 }

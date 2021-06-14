@@ -11,6 +11,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import javax.persistence.EntityNotFoundException;
+
 import static com.epam.rgg.model.ConsoleType.NES;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
@@ -52,7 +54,7 @@ class GameServiceTest {
         when(gameRepository.findRandomGame(any())).thenReturn(empty());
 
         assertThatThrownBy(() -> gameService.rollGame(NES))
-                .isInstanceOf(RecordNotFound.class)
+                .isInstanceOf(EntityNotFoundException.class)
                 .hasMessage("Game with console type NES not found");
     }
 }
