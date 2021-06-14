@@ -25,6 +25,6 @@ public class GameServiceImpl implements GameService {
         if (randomGame.isPresent()) {
             return GameMapper.INSTANCE.gameToGameDto(randomGame.get());
         }
-        return GameDto.builder().build();
+        throw new RecordNotFound("Game with console type " + consoleType + " not found");
     }
 }
