@@ -12,6 +12,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
+import static java.util.Optional.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -33,7 +36,7 @@ class GameServiceTest {
     void shouldReturnGameDto() {
         Console console = new Console(1, ConsoleType.NES);
         Game mario = new Game(1, "Mario", 1985, console);
-        when(gameRepository.findRandomGame(ConsoleType.NES)).thenReturn(mario);
+        when(gameRepository.findRandomGame(ConsoleType.NES)).thenReturn(of(mario));
 
         GameDto actual = gameService.rollGame(ConsoleType.NES);
 

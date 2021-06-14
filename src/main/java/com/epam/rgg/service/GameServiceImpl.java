@@ -7,6 +7,8 @@ import com.epam.rgg.model.ConsoleType;
 import com.epam.rgg.repository.GameRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class GameServiceImpl implements GameService {
 
@@ -19,7 +21,10 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GameDto rollGame(ConsoleType consoleType) {
-        Game randomGame = gameRepository.findRandomGame(consoleType);
-        return GameMapper.INSTANCE.gameToGameDto(randomGame);
+        Optional<Game> randomGame = gameRepository.findRandomGame(consoleType);
+        if (randomGame.isPresent()) {
+            return GameMapper.INSTANCE.gameToGameDto(randomGame.get());
+        }
+        return GameDto.builder().build();
     }
 }
