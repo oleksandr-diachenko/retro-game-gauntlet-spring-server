@@ -1,5 +1,6 @@
 package com.epam.rgg.dao.repository;
 
+import com.epam.rgg.dao.entity.Console;
 import com.epam.rgg.dao.entity.Game;
 import com.epam.rgg.model.ConsoleType;
 import org.springframework.data.jpa.repository.Query;
@@ -9,8 +10,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface GameRepository extends CrudRepository<Game, Long> {
-
-    @Query(nativeQuery=true, value="SELECT * FROM GAME ORDER BY random() LIMIT 1")
-    Optional<Game> findRandomGame(ConsoleType consoleType);
+public interface ConsoleRepository extends CrudRepository<Console, Long> {
 }
