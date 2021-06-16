@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 @DBRider
 @ExtendWith(SpringExtension.class)
-class ConsoleRepositoryDatabaseTest {
+class ConsoleRepositorySpringTest {
 
     @Autowired
     private ConsoleRepository consoleRepository;
