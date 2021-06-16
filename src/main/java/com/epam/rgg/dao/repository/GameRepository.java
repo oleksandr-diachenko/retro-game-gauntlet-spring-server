@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface GameRepository extends CrudRepository<Game, Long> {
 
-    @Query(nativeQuery=true, value="SELECT * FROM GAME ORDER BY random() LIMIT 1")
+    @Query(nativeQuery=true, value="SELECT * FROM game ORDER BY random() LIMIT 1")
     Optional<Game> findRandomGame(ConsoleType consoleType);
 }

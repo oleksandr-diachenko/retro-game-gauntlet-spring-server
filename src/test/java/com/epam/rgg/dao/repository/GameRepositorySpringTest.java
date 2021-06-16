@@ -11,8 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
+import static com.epam.rgg.model.ConsoleType.NES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringTag
@@ -34,5 +37,18 @@ class GameRepositorySpringTest {
         assertThat(actual)
                 .map(Game::getName)
                 .hasValue("Mario");
+    }
+
+    @Test
+    @DataSet(value = "game.yml")
+    void shouldReturnRandomGame() {
+        Set<Optional<Game>> randoms = new HashSet<>();
+        for (int i = 0; i < 50; i++) {
+            randoms.add(gameRepository.findRandomGame(NES));
+        }
+
+        assertThat(randoms)
+                .hasSizeGreaterThan(1)
+                .allMatch(Optional::isPresent);
     }
 }
