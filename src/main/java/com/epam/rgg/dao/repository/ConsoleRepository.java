@@ -11,4 +11,6 @@ import java.util.Optional;
 
 @Repository
 public interface ConsoleRepository extends CrudRepository<Console, Long> {
+
+    Optional<Console> findByType(ConsoleType type);
 }

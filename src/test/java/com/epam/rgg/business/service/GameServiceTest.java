@@ -3,8 +3,8 @@ package com.epam.rgg.business.service;
 import com.epam.rgg.business.dto.GameDto;
 import com.epam.rgg.dao.entity.Console;
 import com.epam.rgg.dao.entity.Game;
-import com.epam.rgg.junittag.MockTag;
 import com.epam.rgg.dao.repository.GameRepository;
+import com.epam.rgg.junittag.MockTag;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,8 +37,8 @@ class GameServiceTest {
 
     @Test
     void shouldReturnGameDto() {
-        Console console = new Console(1, NES);
-        Game mario = new Game(1, "Mario", 1985, console);
+        Console console = new Console(NES);
+        Game mario = new Game("Mario", 1985, console);
         when(gameRepository.findRandomGame(NES)).thenReturn(of(mario));
 
         GameDto actual = gameService.rollGame(NES);
