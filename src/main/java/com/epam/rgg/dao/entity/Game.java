@@ -1,6 +1,6 @@
-package com.epam.rgg.entity;
+package com.epam.rgg.dao.entity;
 
-import com.epam.rgg.model.ConsoleType;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Console {
+public class Game {
 
     private long id;
-    private ConsoleType type;
+    private String name;
+    private int year;
+    private Console console;
 }

@@ -1,9 +1,9 @@
 package com.epam.rgg.controller;
 
-import com.epam.rgg.dto.ConsoleDto;
+import com.epam.rgg.business.dto.ConsoleDto;
 import com.epam.rgg.junittag.SpringTag;
 import com.epam.rgg.model.ConsoleType;
-import com.epam.rgg.service.ConsoleService;
+import com.epam.rgg.business.service.ConsoleService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

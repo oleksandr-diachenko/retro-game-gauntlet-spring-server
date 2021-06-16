@@ -1,9 +1,9 @@
 package com.epam.rgg.controller;
 
-import com.epam.rgg.dto.GameDto;
+import com.epam.rgg.business.dto.GameDto;
 import com.epam.rgg.junittag.SpringTag;
 import com.epam.rgg.model.ConsoleType;
-import com.epam.rgg.service.GameService;
+import com.epam.rgg.business.service.GameService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

@@ -1,10 +1,10 @@
-package com.epam.rgg.service;
+package com.epam.rgg.business.service;
 
-import com.epam.rgg.dto.GameDto;
-import com.epam.rgg.entity.Game;
-import com.epam.rgg.mapper.GameMapper;
+import com.epam.rgg.business.dto.GameDto;
+import com.epam.rgg.dao.entity.Game;
+import com.epam.rgg.business.mapper.GameMapper;
 import com.epam.rgg.model.ConsoleType;
-import com.epam.rgg.repository.GameRepository;
+import com.epam.rgg.dao.repository.GameRepository;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;

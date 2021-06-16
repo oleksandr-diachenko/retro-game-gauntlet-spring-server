@@ -1,6 +1,6 @@
-package com.epam.rgg.service;
+package com.epam.rgg.business.service;
 
-import com.epam.rgg.dto.ConsoleDto;
+import com.epam.rgg.business.dto.ConsoleDto;
 import com.epam.rgg.model.ConsoleType;
 import org.springframework.stereotype.Service;
 

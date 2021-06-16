@@ -1,7 +1,7 @@
-package com.epam.rgg.mapper;
+package com.epam.rgg.business.mapper;
 
-import com.epam.rgg.dto.GameDto;
-import com.epam.rgg.entity.Game;
+import com.epam.rgg.business.dto.GameDto;
+import com.epam.rgg.dao.entity.Game;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

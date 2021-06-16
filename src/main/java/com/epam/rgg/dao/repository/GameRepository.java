@@ -1,6 +1,6 @@
-package com.epam.rgg.repository;
+package com.epam.rgg.dao.repository;
 
-import com.epam.rgg.entity.Game;
+import com.epam.rgg.dao.entity.Game;
 import com.epam.rgg.model.ConsoleType;
 import org.springframework.stereotype.Repository;
 

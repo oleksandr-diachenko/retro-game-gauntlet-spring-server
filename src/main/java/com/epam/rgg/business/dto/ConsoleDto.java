@@ -1,4 +1,4 @@
-package com.epam.rgg.dto;
+package com.epam.rgg.business.dto;
 
 
 import com.epam.rgg.model.ConsoleType;
