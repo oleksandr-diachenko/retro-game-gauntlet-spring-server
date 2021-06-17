@@ -23,8 +23,7 @@ public class ConsoleServiceImpl implements ConsoleService {
     public ConsoleDto findConsole(ConsoleType consoleType) {
         Optional<Console> console = consoleRepository.findByType(consoleType);
         if (console.isPresent()) {
-            ConsoleDto consoleDto = ConsoleMapper.INSTANCE.toConsoleDto(console.get());
-            return consoleDto.withGameCount(console.get().getGames().size());
+            return ConsoleMapper.INSTANCE.toConsoleDto(console.get());
         }
         throw new EntityNotFoundException("Console with name " + consoleType + " not found");
     }

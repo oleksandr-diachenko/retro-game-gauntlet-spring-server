@@ -24,7 +24,8 @@ public class Game {
     private Long id;
     private String name;
     private int year;
-    @ManyToOne(fetch = LAZY, cascade = ALL)
+    @ManyToOne
+    @JoinColumn(name="console_id")
     private Console console;
 
     public Game(String name, int year, Console console) {

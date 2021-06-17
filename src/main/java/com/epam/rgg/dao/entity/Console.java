@@ -1,6 +1,7 @@
 package com.epam.rgg.dao.entity;
 
 import com.epam.rgg.model.ConsoleType;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @NoArgsConstructor
@@ -26,9 +28,9 @@ public class Console {
     @Enumerated(EnumType.STRING)
     @Column(name = "name")
     private ConsoleType type;
-    @OneToMany
+    @OneToMany(mappedBy = "console", fetch = LAZY)
     @ToString.Exclude
-    private List<Game> games = new ArrayList<>();
+    private final List<Game> games = new ArrayList<>();
 
     public Console(ConsoleType type) {
         this.type = type;

@@ -12,5 +12,6 @@ public interface ConsoleMapper {
     ConsoleMapper INSTANCE = Mappers.getMapper(ConsoleMapper.class);
 
     @Mapping(source = "type", target = "consoleType")
+    @Mapping(target = "gameCount", expression = "java(console.getGames().size())")
     ConsoleDto toConsoleDto(Console console);
 }
