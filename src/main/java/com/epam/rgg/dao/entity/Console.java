@@ -6,10 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-
+import java.util.ArrayList;
 import java.util.List;
 
-import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @NoArgsConstructor
@@ -27,8 +26,15 @@ public class Console {
     @Enumerated(EnumType.STRING)
     @Column(name = "name")
     private ConsoleType type;
+    @OneToMany
+    @ToString.Exclude
+    private List<Game> games = new ArrayList<>();
 
     public Console(ConsoleType type) {
         this.type = type;
+    }
+
+    public void addGame(Game game) {
+        games.add(game);
     }
 }

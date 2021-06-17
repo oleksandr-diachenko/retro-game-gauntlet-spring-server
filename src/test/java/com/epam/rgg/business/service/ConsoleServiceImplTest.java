@@ -30,15 +30,15 @@ class ConsoleServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        consoleService = new ConsoleServiceImpl(consoleRepository, gameRepository);
+        consoleService = new ConsoleServiceImpl(consoleRepository);
     }
 
     @Test
     void shouldReturnConsoleByConsoleType() {
         Console nes = new Console(NES);
-        when(consoleRepository.findByType(NES)).thenReturn(of(nes));
         Game mario = new Game("Mario", 1985, nes);
-        when(gameRepository.findGamesByConsole(nes)).thenReturn(List.of(mario));
+        nes.addGame(mario);
+        when(consoleRepository.findByType(NES)).thenReturn(of(nes));
 
         ConsoleDto actual = consoleService.findConsole(NES);
 
