@@ -1,7 +1,6 @@
 package com.epam.rgg.dao.entity;
 
 import com.epam.rgg.model.ConsoleType;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
