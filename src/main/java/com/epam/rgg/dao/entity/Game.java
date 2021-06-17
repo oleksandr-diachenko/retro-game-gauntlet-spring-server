@@ -26,6 +26,7 @@ public class Game {
     private int year;
     @ManyToOne(fetch = LAZY, cascade = ALL)
     private Console console;
+
     public Game(String name, int year, Console console) {
         this.name = name;
         this.year = year;

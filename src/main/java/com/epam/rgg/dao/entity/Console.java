@@ -7,6 +7,9 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+import java.util.List;
+
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @NoArgsConstructor
@@ -20,9 +23,11 @@ public class Console {
     @GeneratedValue(strategy = SEQUENCE, generator = "console_gen")
     @SequenceGenerator(name = "console_gen", sequenceName = "console_seq")
     private Long id;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "name")
     private ConsoleType type;
+
     public Console(ConsoleType type) {
         this.type = type;
     }

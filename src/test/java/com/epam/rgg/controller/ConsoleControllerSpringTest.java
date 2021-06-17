@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.epam.rgg.model.ConsoleType.NES;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
@@ -35,8 +36,8 @@ class ConsoleControllerSpringTest {
 
     @Test
     void shouldReturnConsole() throws Exception {
-        ConsoleDto consoleDto = new ConsoleDto(ConsoleType.NES, 764);
-        when(consoleService.findConsole(ConsoleType.NES)).thenReturn(consoleDto);
+        ConsoleDto consoleDto = ConsoleDto.builder().consoleType(NES).gameCount(764).build();
+        when(consoleService.findConsole(NES)).thenReturn(consoleDto);
 
         mockMvc.perform(get("/v1/consoles/NES"))
                 .andExpect(jsonPath("$.consoleType", is("NES")))

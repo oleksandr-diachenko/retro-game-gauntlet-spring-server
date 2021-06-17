@@ -29,7 +29,7 @@ class ConsoleControllerTest {
 
     @Test
     void shouldReturnConsole() {
-        ConsoleDto expected = new ConsoleDto(NES, 272);
+        ConsoleDto expected = ConsoleDto.builder().consoleType(NES).gameCount(272).build();
         when(consoleService.findConsole(NES)).thenReturn(expected);
 
         ConsoleDto actual = consoleController.getConsole(NES);
