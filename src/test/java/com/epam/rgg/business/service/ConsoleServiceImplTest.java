@@ -10,9 +10,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import javax.persistence.EntityNotFoundException;
+
 import static com.epam.rgg.model.ConsoleType.NES;
+import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,5 +45,14 @@ class ConsoleServiceImplTest {
         ConsoleDto expected = ConsoleDto.builder().consoleType(NES).gameCount(1).build();
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void shouldThrowEntityNotFoundExceptionWhenRepositoryReturnsEmptyOptional() {
+        when(consoleRepository.findByType(any())).thenReturn(empty());
+
+        assertThatThrownBy(() -> consoleService.findConsole(NES))
+                .isInstanceOf(EntityNotFoundException.class)
+                .hasMessage("Console with name NES not found");
     }
 }
