@@ -19,7 +19,7 @@ CREATE TABLE game
 (
     id         BIGINT,
     name       VARCHAR(255) NOT NULL,
-    year       INTEGER(4) NOT NULL,
+    year       INTEGER NOT NULL,
     console_id BIGINT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (console_id) REFERENCES console (id)
