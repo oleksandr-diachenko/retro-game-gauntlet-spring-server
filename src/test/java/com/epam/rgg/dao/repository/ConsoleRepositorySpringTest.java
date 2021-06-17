@@ -33,4 +33,12 @@ class ConsoleRepositorySpringTest {
                 .map(Console::getType)
                 .hasValue(NES);
     }
+
+    @Test
+    @DataSet({"game.yml", "console.yml"})
+    void shouldFillGameList() {
+        Optional<Console> actual = consoleRepository.findByType(NES);
+
+        assertThat(actual.get().getGames()).hasSizeGreaterThan(0);
+    }
 }
