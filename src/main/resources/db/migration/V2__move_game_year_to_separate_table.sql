@@ -6,7 +6,7 @@ CREATE SEQUENCE year_seq
 CREATE TABLE year
 (
     id   BIGINT,
-    year NUMBER NOT NULL,
+    years NUMBER NOT NULL,
     PRIMARY KEY (id)
 );
 
