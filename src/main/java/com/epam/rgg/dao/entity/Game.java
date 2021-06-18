@@ -20,12 +20,14 @@ public class Game {
     @SequenceGenerator(name = "game_gen", sequenceName = "game_seq")
     private Long id;
     private String name;
-    private int year;
     @ManyToOne
-    @JoinColumn(name="console_id")
+    @JoinColumn(name = "console_id")
     private Console console;
+    @ManyToOne
+    @JoinColumn(name = "year_id")
+    private Year year;
 
-    public Game(String name, int year, Console console) {
+    public Game(String name, Console console, Year year) {
         this.name = name;
         this.year = year;
         this.console = console;
