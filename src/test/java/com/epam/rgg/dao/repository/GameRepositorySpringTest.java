@@ -49,6 +49,7 @@ class GameRepositorySpringTest {
 
         assertThat(randoms)
                 .hasSizeGreaterThan(1)
-                .allMatch(Optional::isPresent);
+                .map(Optional::get)
+                .allMatch(game -> game.getConsole().getType() == NES);
     }
 }
