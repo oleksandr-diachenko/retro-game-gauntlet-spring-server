@@ -6,12 +6,12 @@ CREATE SEQUENCE year_seq
 CREATE TABLE year
 (
     id   BIGINT,
-    years NUMBER NOT NULL,
+    years INTEGER NOT NULL,
     PRIMARY KEY (id)
 );
 
 ALTER TABLE game
-    ADD COLUMN year_id NUMBER NOT NULL;
+    ADD COLUMN year_id INTEGER NOT NULL;
 
 ALTER TABLE game
     ADD CONSTRAINT fk_year_id
