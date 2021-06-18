@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 @DBRider
 @DBUnit(mergeDataSets = true)
-@DataSet("console.yml")
+@DataSet({"console.yml", "year.yml"})
 @ExtendWith(SpringExtension.class)
 class GameRepositorySpringTest {
 

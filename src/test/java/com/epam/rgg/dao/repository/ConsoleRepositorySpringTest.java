@@ -35,7 +35,7 @@ class ConsoleRepositorySpringTest {
     }
 
     @Test
-    @DataSet({"game.yml", "console.yml"})
+    @DataSet({"game.yml", "console.yml", "year.yml"})
     void shouldFillGameList() {
         Optional<Console> actual = consoleRepository.findByType(NES);
 

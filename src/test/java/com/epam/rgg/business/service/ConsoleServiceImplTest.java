@@ -3,6 +3,7 @@ package com.epam.rgg.business.service;
 import com.epam.rgg.business.dto.ConsoleDto;
 import com.epam.rgg.dao.entity.Console;
 import com.epam.rgg.dao.entity.Game;
+import com.epam.rgg.dao.entity.Year;
 import com.epam.rgg.dao.repository.ConsoleRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,7 +37,8 @@ class ConsoleServiceImplTest {
     @Test
     void shouldReturnConsoleByConsoleType() {
         Console nes = new Console(NES);
-        Game mario = new Game("Mario", 1985, nes);
+        Year year = new Year(1985);
+        Game mario = new Game("Mario", nes, year);
         nes.addGame(mario);
         when(consoleRepository.findByType(NES)).thenReturn(of(nes));
 
