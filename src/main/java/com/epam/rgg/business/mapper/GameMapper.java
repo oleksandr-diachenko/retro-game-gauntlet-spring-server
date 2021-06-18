@@ -12,6 +12,6 @@ public interface GameMapper {
     GameMapper INSTANCE = Mappers.getMapper(GameMapper.class);
 
     @Mapping(source = "console.type", target = "consoleType")
-    @Mapping(source = "year.year", target = "year")
+    @Mapping(source = "year.years", target = "year")
     GameDto gameToGameDto(Game game);
 }

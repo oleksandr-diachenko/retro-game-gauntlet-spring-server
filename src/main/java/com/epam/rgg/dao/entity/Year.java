@@ -19,9 +19,9 @@ public class Year {
     @GeneratedValue(strategy = SEQUENCE, generator = "year_gen")
     @SequenceGenerator(name = "year_gen", sequenceName = "year_seq")
     private Long id;
-    private int year;
+    private int years;
 
-    public Year(int year) {
-        this.year = year;
+    public Year(int years) {
+        this.years = years;
     }
 }
