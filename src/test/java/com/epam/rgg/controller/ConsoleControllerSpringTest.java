@@ -1,15 +1,16 @@
 package com.epam.rgg.controller;
 
-import com.epam.rgg.dto.ConsoleDto;
+import com.epam.rgg.business.dto.ConsoleDto;
 import com.epam.rgg.junittag.SpringTag;
 import com.epam.rgg.model.ConsoleType;
-import com.epam.rgg.service.ConsoleService;
+import com.epam.rgg.business.service.ConsoleService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.epam.rgg.model.ConsoleType.NES;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
@@ -35,8 +36,8 @@ class ConsoleControllerSpringTest {
 
     @Test
     void shouldReturnConsole() throws Exception {
-        ConsoleDto consoleDto = new ConsoleDto(ConsoleType.NES, 764);
-        when(consoleService.findConsole(ConsoleType.NES)).thenReturn(consoleDto);
+        ConsoleDto consoleDto = ConsoleDto.builder().consoleType(NES).gameCount(764).build();
+        when(consoleService.findConsole(NES)).thenReturn(consoleDto);
 
         mockMvc.perform(get("/v1/consoles/NES"))
                 .andExpect(jsonPath("$.consoleType", is("NES")))

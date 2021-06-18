@@ -1,8 +1,8 @@
 package com.epam.rgg.controller;
 
-import com.epam.rgg.dto.ConsoleDto;
+import com.epam.rgg.business.dto.ConsoleDto;
 import com.epam.rgg.model.ConsoleType;
-import com.epam.rgg.service.ConsoleService;
+import com.epam.rgg.business.service.ConsoleService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,8 +1,8 @@
 package com.epam.rgg.controller;
 
-import com.epam.rgg.dto.ConsoleDto;
+import com.epam.rgg.business.dto.ConsoleDto;
 import com.epam.rgg.junittag.MockTag;
-import com.epam.rgg.service.ConsoleService;
+import com.epam.rgg.business.service.ConsoleService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +29,7 @@ class ConsoleControllerTest {
 
     @Test
     void shouldReturnConsole() {
-        ConsoleDto expected = new ConsoleDto(NES, 272);
+        ConsoleDto expected = ConsoleDto.builder().consoleType(NES).gameCount(272).build();
         when(consoleService.findConsole(NES)).thenReturn(expected);
 
         ConsoleDto actual = consoleController.getConsole(NES);

@@ -1,0 +1,5 @@
+console:
+  - id: 1
+    name: NES
+  - id: 2
+    name: SEGA
