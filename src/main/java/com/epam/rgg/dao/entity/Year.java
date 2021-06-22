@@ -13,7 +13,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity
 @ToString
 @Table(name = "year")
-public class Year {
+public class Year extends Auditable {
 
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "year_gen")
