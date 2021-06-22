@@ -3,7 +3,9 @@ package com.epam.rgg.dao.entity;
 import com.epam.rgg.model.ConsoleType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity
 @ToString
 @Table(name = "console")
-public class Console {
+public class Console extends Auditable {
 
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "console_gen")
@@ -26,6 +28,7 @@ public class Console {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "name")
+    @Setter
     private ConsoleType type;
     @OneToMany(mappedBy = "console", fetch = LAZY)
     @ToString.Exclude
